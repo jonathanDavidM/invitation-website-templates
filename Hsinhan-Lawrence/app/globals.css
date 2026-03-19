@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-jost: "Jost", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1a2b38;
+  font-family: var(--font-jost);
+  overflow-x: hidden;
+}
+
+/* Decorative corner borders */
+.corner-border {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-color: rgba(184, 150, 76, 0.5);
+  border-style: solid;
+}
+.corner-tl {
+  top: 24px;
+  left: 24px;
+  border-width: 1.5px 0 0 1.5px;
+}
+.corner-tr {
+  top: 24px;
+  right: 24px;
+  border-width: 1.5px 1.5px 0 0;
+}
+.corner-bl {
+  bottom: 24px;
+  left: 24px;
+  border-width: 0 0 1.5px 1.5px;
+}
+.corner-br {
+  bottom: 24px;
+  right: 24px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+/* Divider with central dot */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184, 150, 76, 0.7));
+}
+.gold-divider::after {
+  background: linear-gradient(to left, transparent, rgba(184, 150, 76, 0.7));
+}
+
+/* Scroll reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Countdown number animation */
+.countdown-flip {
+  transition: all 0.3s ease;
+}
+
+/* Timeline vertical line */
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #8eb4cb 15%,
+    #8eb4cb 85%,
+    transparent
+  );
+}
+
+/* Photo hover */
+.photo-item {
+  overflow: hidden;
+}
+.photo-item img {
+  transition: transform 0.8s ease;
+}
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* RSVP input styles */
+.rsvp-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(184, 150, 76, 0.2);
+  color: #f4f7fa;
+  font-family: var(--font-jost);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  font-weight: 300;
+  width: 100%;
+  padding: 14px 18px;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+}
+.rsvp-input:focus {
+  border-color: rgba(184, 150, 76, 0.55);
+}
+.rsvp-input::placeholder {
+  color: rgba(250, 246, 240, 0.3);
+}
+.rsvp-input option {
+  background: #1a2b38;
+}

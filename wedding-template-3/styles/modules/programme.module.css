@@ -1,0 +1,111 @@
+/* programme.module.css */
+
+.section {
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* Background sits behind content via position:absolute */
+.bgWrap {
+  position: absolute;
+  inset: -15% 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 9, 8, 0.8);
+}
+
+/* Content is in normal flow — z-index above background */
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--section-py) var(--section-px);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 52px);
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.list {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.time {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  width: 80px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-gold);
+  flex-shrink: 0;
+}
+
+.event {
+  font-family: var(--font-elegant);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  font-weight: 300;
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .time { width: 64px; font-size: 10px; }
+  .event { font-size: 16px; }
+}

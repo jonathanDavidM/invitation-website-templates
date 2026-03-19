@@ -1,0 +1,62 @@
+/* styles/modules/countdown.module.css */
+
+.countdown {
+  padding: 80px 40px;
+  background: #1a5c3a;
+}
+
+.label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #e8d09a;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin-bottom: 42px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(14px, 3.5vw, 56px);
+  flex-wrap: wrap;
+}
+
+.unitGroup {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(14px, 3.5vw, 56px);
+}
+
+.unit {
+  text-align: center;
+}
+
+.number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 7.5vw, 86px);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1;
+  display: block;
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.25);
+}
+
+.unitLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: #c9a84c;
+  text-transform: uppercase;
+  margin-top: 6px;
+  display: block;
+}
+
+.separator {
+  font-size: clamp(36px, 4vw, 60px);
+  color: rgba(201, 168, 76, 0.3);
+  padding-bottom: 20px;
+  line-height: 1;
+}

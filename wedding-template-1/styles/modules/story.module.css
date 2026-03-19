@@ -1,0 +1,138 @@
+/* styles/modules/story.module.css */
+
+.story {
+  padding: 110px 40px;
+  background: #f8f4ec;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: #6b6b5e;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 80px;
+}
+
+.introEm {
+  color: #1a5c3a;
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+}
+
+.centerLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(201, 168, 76, 0.3),
+    #c9a84c 30%,
+    #c9a84c 70%,
+    rgba(201, 168, 76, 0.3)
+  );
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  display: flex;
+  margin-bottom: 48px;
+}
+
+.side_left {
+  justify-content: flex-start;
+}
+
+.side_right {
+  justify-content: flex-end;
+}
+
+.timelineCard {
+  width: 44%;
+  position: relative;
+}
+
+.card_left {
+  padding-right: 48px;
+  text-align: right;
+}
+
+.card_right {
+  padding-left: 48px;
+  text-align: left;
+}
+
+.dot {
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #c9a84c;
+  border: 2px solid #f8f4ec;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.3);
+}
+
+.year {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #4a9e6e;
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.eventTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #0d3d26;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.eventDesc {
+  font-size: 15px;
+  color: #6b6b5e;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .story {
+    padding: 80px 24px;
+  }
+
+  .centerLine {
+    left: 16px;
+  }
+
+  .timelineItem {
+    justify-content: flex-start !important;
+  }
+
+  .timelineCard {
+    width: 100%;
+    padding-left: 48px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .dot {
+    left: 10px !important;
+    right: auto !important;
+  }
+}

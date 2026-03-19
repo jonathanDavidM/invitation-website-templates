@@ -1,0 +1,36 @@
+/* styles/modules/footer.module.css */
+
+.footer {
+  background: #040d07;
+  padding: 64px 40px 44px;
+  text-align: center;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.monogram {
+  font-family: 'Cormorant Upright', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: #c9a84c;
+  opacity: 0.5;
+  letter-spacing: 8px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.date {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 6px;
+  color: rgba(201, 168, 76, 0.28);
+  display: block;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.13);
+}

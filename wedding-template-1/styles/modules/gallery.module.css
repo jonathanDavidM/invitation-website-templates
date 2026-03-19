@@ -1,0 +1,136 @@
+/* styles/modules/gallery.module.css */
+
+.gallery {
+  padding: 110px 40px 100px;
+  background: #ede5d0;
+}
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 5px;
+}
+
+.cell {
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+}
+
+/* Backgrounds */
+.cell0 { background: linear-gradient(135deg, #0a2018 0%, #236649 60%, #1a5c3a 100%); }
+.cell1 { background: linear-gradient(135deg, #1a5c3a, #0d3d26); }
+.cell2 { background: linear-gradient(180deg, #236649, #0d3d26); }
+.cell3 { background: linear-gradient(135deg, #0d3d26, #1a5c3a, #236649); }
+.cell4 { background: linear-gradient(to top right, #1a5c3a, #4a9e6e); }
+
+.cellInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: transform 0.6s ease;
+}
+
+.cellHovered {
+  transform: scale(1.04);
+}
+
+.cellOverlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background 0.4s;
+  pointer-events: none;
+}
+
+.cellOverlayHovered {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Cell content */
+.monogramText {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(28px, 3vw, 40px);
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.goldStar {
+  color: rgba(201, 168, 76, 0.7);
+  font-size: 0.75em;
+}
+
+.quoteText {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(13px, 1.5vw, 17px);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  line-height: 1.6;
+  padding: 0 16px;
+}
+
+.venueBlock {
+  text-align: center;
+}
+
+.venueLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.venueName {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+.taglineText {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(8px, 1.2vw, 11px);
+  letter-spacing: 4px;
+  color: rgba(201, 168, 76, 0.6);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dateText {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(12px, 1.4vw, 14px);
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    padding: 80px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 180px 180px 180px;
+  }
+
+  .cell:first-child {
+    grid-column: span 2;
+  }
+}

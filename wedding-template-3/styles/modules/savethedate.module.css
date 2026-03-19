@@ -1,0 +1,53 @@
+/* savethedate.module.css */
+.section {
+  position: relative; overflow: hidden;
+  padding: var(--section-py) var(--section-px);
+  background: var(--dark);
+  text-align: center;
+}
+.sideTextLeft, .sideTextRight {
+  position: absolute; top: 50%;
+  font-family: var(--font-sans); font-size: 10px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.05); white-space: nowrap;
+  pointer-events: none;
+}
+.sideTextLeft { left: -60px; transform: translateY(-50%) rotate(-90deg); }
+.sideTextRight { right: -60px; transform: translateY(-50%) rotate(90deg); }
+.inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+.eyebrow {
+  font-family: var(--font-sans); font-size: 10px;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 24px;
+}
+.headline {
+  font-family: var(--font-elegant); font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 300; font-style: italic;
+  color: var(--text-muted); line-height: 1.6;
+  margin-bottom: 48px; letter-spacing: 0.5px;
+}
+.countdown {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: clamp(12px, 3vw, 52px); flex-wrap: wrap; margin-top: 52px;
+}
+.unitGroup {
+  display: flex; align-items: flex-end;
+  gap: clamp(12px, 3vw, 52px);
+}
+.unit { text-align: center; }
+.number {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400; color: var(--cream);
+  line-height: 1; display: block;
+  letter-spacing: -2px;
+}
+.label {
+  font-family: var(--font-sans); font-size: 9px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-top: 8px; display: block;
+}
+.sep {
+  font-size: clamp(32px, 4vw, 52px);
+  color: var(--border-gold); padding-bottom: 18px; line-height: 1;
+}
