@@ -1,0 +1,156 @@
+/**
+ * Image pipeline — run with `npm run images`.
+ *
+ * 1. Creates elegant gradient placeholder JPEGs for any expected photo that
+ *    is missing from /public/images (so the site looks composed before the
+ *    real engagement photos are dropped in — see PHOTOS.md for the mapping).
+ * 2. Generates /public/images/og.jpg (1200×630) from the hero photo if absent.
+ * 3. Scans every image and writes content/image-manifest.json with real
+ *    dimensions + tiny blur placeholders (used by next/image).
+ *
+ * Re-run this script every time photos are added or replaced.
+ */
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import sharp from "sharp";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const imagesDir = path.join(root, "public", "images");
+const manifestPath = path.join(root, "content", "image-manifest.json");
+
+/** Expected photos. Gradients loosely echo each real photo's palette. */
+const EXPECTED = [
+  // Desert series — warm amber/bronze sunset tones
+  ph("gallery/desert-dunes-hero.jpg", 1800, 1200, ["#E8B77C", "#C68A4F", "#7A4A2B"]),
+  ph("gallery/desert-gown-billow.jpg", 1200, 1800, ["#F0C58A", "#C68A4F", "#6E4023"]),
+  ph("gallery/desert-sunset-gaze.jpg", 1200, 1800, ["#F2CD96", "#D19A5E", "#8A5633"]),
+  ph("gallery/desert-groom-portrait.jpg", 1200, 1800, ["#F5D6A0", "#DFA76B", "#96603A"]),
+  ph("gallery/camel-road.jpg", 1800, 1200, ["#F3DDB4", "#D9B07C", "#8C6844"]),
+  // City series — cool sky/teal with warm skin tones
+  ph("gallery/city-bride-portrait.jpg", 1200, 1800, ["#BFE0E4", "#8FBFC9", "#5E8E9C"]),
+  ph("gallery/city-back-to-back.jpg", 1200, 1800, ["#AEDDE8", "#7FB8CB", "#4E7F96"]),
+  ph("gallery/city-promenade.jpg", 1200, 1800, ["#D8E9E4", "#A6C8C4", "#6F9490"]),
+  ph("gallery/city-stroll.jpg", 1800, 1200, ["#DCEBE7", "#AFCFC9", "#7A9E99"]),
+  ph("gallery/city-hailing.jpg", 1200, 1800, ["#C4E2E8", "#93BFCB", "#5F8C9E"]),
+  ph("gallery/city-sign-lean.jpg", 1200, 1800, ["#B8DDE6", "#88B8C8", "#54859B"]),
+  // Tram series — heritage red
+  ph("gallery/tram-walk.jpg", 1200, 1800, ["#E3B7A0", "#C4614E", "#7E2F26"]),
+  ph("gallery/tram-facing.jpg", 1800, 1200, ["#E8C4AC", "#CC6E58", "#8A392E"]),
+  // Venues — soft emerald/ivory
+  ph("venues/church.jpg", 1600, 1067, ["#EAF0E4", "#B9CCB4", "#5F7D68"]),
+  ph("venues/reception.jpg", 1600, 1067, ["#E9F0EC", "#AFC9BC", "#4F7462"]),
+];
+
+function ph(rel, width, height, stops) {
+  return { rel, width, height, stops };
+}
+
+function gradientSvg(width, height, stops) {
+  return Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="0.6" y2="1">
+          <stop offset="0" stop-color="${stops[0]}"/>
+          <stop offset="0.55" stop-color="${stops[1]}"/>
+          <stop offset="1" stop-color="${stops[2]}"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="0.5" cy="0.42" r="0.55">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#g)"/>
+      <rect width="100%" height="100%" fill="url(#glow)"/>
+    </svg>`,
+  );
+}
+
+async function exists(p) {
+  try {
+    await fs.access(p);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function ensurePlaceholders() {
+  let created = 0;
+  for (const { rel, width, height, stops } of EXPECTED) {
+    const abs = path.join(imagesDir, rel);
+    await fs.mkdir(path.dirname(abs), { recursive: true });
+    if (await exists(abs)) continue;
+    await sharp(gradientSvg(width, height, stops))
+      .jpeg({ quality: 78 })
+      .toFile(abs);
+    created += 1;
+    console.log(`  placeholder → ${rel}`);
+  }
+  console.log(
+    created
+      ? `Created ${created} placeholder(s). Replace them with real photos (see PHOTOS.md).`
+      : "All expected photos present — no placeholders needed.",
+  );
+}
+
+async function ensureOgImage() {
+  const og = path.join(imagesDir, "og.jpg");
+  if (await exists(og)) return;
+  const hero = path.join(imagesDir, "gallery", "desert-dunes-hero.jpg");
+  await sharp(hero)
+    .resize(1200, 630, { fit: "cover", position: "attention" })
+    .jpeg({ quality: 82 })
+    .toFile(og);
+  console.log("  og image → images/og.jpg");
+}
+
+async function collectImages(dir) {
+  const out = [];
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const abs = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...(await collectImages(abs)));
+    } else if (/\.(jpe?g|png|webp)$/i.test(entry.name)) {
+      out.push(abs);
+    }
+  }
+  return out;
+}
+
+async function buildManifest() {
+  const files = await collectImages(imagesDir);
+  const manifest = {
+    _comment:
+      "Generated by `npm run images`. Maps public image paths to real dimensions and blur placeholders. Do not edit by hand.",
+  };
+  for (const abs of files) {
+    const rel =
+      "/" +
+      path
+        .relative(path.join(root, "public"), abs)
+        .split(path.sep)
+        .join("/");
+    const image = sharp(abs);
+    const meta = await image.metadata();
+    const blur = await image
+      .resize(16, undefined, { fit: "inside" })
+      .webp({ quality: 30 })
+      .toBuffer();
+    manifest[rel] = {
+      width: meta.width,
+      height: meta.height,
+      blurDataURL: `data:image/webp;base64,${blur.toString("base64")}`,
+    };
+  }
+  await fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
+  console.log(`Manifest written for ${files.length} image(s).`);
+}
+
+console.log("— Ensuring placeholders —");
+await ensurePlaceholders();
+await ensureOgImage();
+console.log("— Building blur manifest —");
+await buildManifest();
+console.log("Done.");

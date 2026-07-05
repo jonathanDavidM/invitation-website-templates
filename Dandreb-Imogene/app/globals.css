@@ -1,0 +1,202 @@
+/* ============================================================================
+ * Dandreb & Imogin Rose — design tokens (Tailwind CSS v4, CSS-first)
+ *
+ * Follows jonathan-web-standard: semantic OKLCH tokens only, 4 type presets,
+ * 2 weights (400/600), 4/8 spacing grid, WCAG 2.2 AA.
+ *
+ * Palette: emerald green / warm ivory / champagne gold (used sparingly).
+ * Light theme only by design — a wedding invitation is a single, printed-feeling
+ * artifact; dark sections use the `forest` surface tokens below.
+ * ========================================================================== */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ---- Raw semantic values ------------------------------------------------- */
+:root {
+  --radius: 0.75rem; /* 12px base — soft, editorial */
+
+  /* Warm ivory ground (#FAFAF8 family) */
+  --background: oklch(0.982 0.003 95);
+  --foreground: oklch(0.26 0.02 165); /* deep green-ink, ~10.5:1 */
+
+  --card: oklch(0.998 0.002 95);
+  --card-foreground: oklch(0.26 0.02 165);
+  --popover: oklch(0.998 0.002 95);
+  --popover-foreground: oklch(0.26 0.02 165);
+
+  /* Emerald (#0F5132 → #146C43 range) */
+  --primary: oklch(0.4 0.08 163);
+  --primary-foreground: oklch(0.985 0.004 95);
+
+  /* Whisper sage for tinted surfaces */
+  --secondary: oklch(0.958 0.012 140);
+  --secondary-foreground: oklch(0.32 0.045 163);
+
+  --muted: oklch(0.955 0.006 95);
+  --muted-foreground: oklch(0.44 0.02 163); /* ≥4.5:1 on background */
+
+  /* Champagne gold (#D4AF37 family, slightly desaturated for print elegance) */
+  --accent: oklch(0.72 0.105 92);
+  --accent-foreground: oklch(0.28 0.05 163);
+  /* Pale champagne wash (#F4E6B2 family) — hairlines, tints, ornaments */
+  --accent-soft: oklch(0.93 0.04 95);
+
+  --destructive: oklch(0.55 0.19 25);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(0.885 0.008 95); /* ≥3:1 non-text on ivory */
+  --input: oklch(0.885 0.008 95);
+  --ring: oklch(0.46 0.08 163);
+
+  /* Dark evergreen surface for hero overlay / footer / dark sections */
+  --forest: oklch(0.27 0.045 165);
+  --forest-foreground: oklch(0.96 0.008 95);
+  --forest-muted: oklch(0.78 0.02 120); /* AA on forest */
+}
+
+/* ---- Expose tokens to Tailwind ------------------------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+  --color-forest-muted: var(--forest-muted);
+
+  /* Radius scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  /* Font families (wired to next/font variables in app/layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-script: var(--font-great-vibes), "Great Vibes", cursive;
+
+  /* Typography presets — the ONLY four sizes. Weight is 400 or 600 only. */
+  --text-caption: 0.875rem; /* 14px — eyebrows, labels, meta */
+  --text-caption--line-height: 1.25rem;
+  --text-caption--letter-spacing: 0.02em;
+  --text-body: 1rem; /* 16px */
+  --text-body--line-height: 1.75rem;
+  --text-title: clamp(1.75rem, 1.3rem + 2vw, 2.625rem); /* section titles */
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: 0.01em;
+  --text-display: clamp(2.75rem, 1.6rem + 5.5vw, 5.75rem); /* hero names */
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: 0.015em;
+
+  /* Motion */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Radix accordion */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/* ---- Base layer ----------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent-foreground);
+  }
+
+  /* Full-opacity offset focus ring — meets 3:1 (fixes shadcn default) */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---- Small shared utilities ------------------------------------------------ */
+@utility font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+}
+
+/* Gold hairline divider — the standard ornament, used sparingly */
+@utility hairline-gold {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent) 50%,
+    transparent
+  );
+  height: 1px;
+}
