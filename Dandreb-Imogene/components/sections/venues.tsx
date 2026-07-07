@@ -50,7 +50,7 @@ export function Venues() {
                     sizes="(min-width: 768px) 45vw, 90vw"
                     placeholder={blurFor(venue.image) ? "blur" : "empty"}
                     blurDataURL={blurFor(venue.image)}
-                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
                 </div>
 

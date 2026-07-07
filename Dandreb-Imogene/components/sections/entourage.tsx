@@ -5,7 +5,7 @@ import { entourage } from "@/content/entourage";
 import type { EntourageGroup } from "@/types";
 import { cn } from "@/lib/utils";
 
-const CARD = "rounded-2xl border border-border bg-card p-8 text-center";
+const CARD = "rounded-2xl border border-border bg-card p-8 text-center shadow-sm";
 
 /** Shared card body: gold-eyebrow title, tiny hairline, then the names. */
 function GroupCard({

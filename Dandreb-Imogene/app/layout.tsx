@@ -77,6 +77,9 @@ export const viewport: Viewport = {
   themeColor: "#0F5132",
   width: "device-width",
   initialScale: 1,
+  // Lets env(safe-area-inset-*) resolve on notched iOS devices
+  // (the floating music button offsets itself by it).
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -87,6 +90,11 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${inter.variable} ${greatVibes.variable} font-sans text-body antialiased`}
       >
+        {/* Without JS the entrance overlay can never be dismissed — hide it
+            so the (fully server-rendered) invitation stays reachable. */}
+        <noscript>
+          <style>{`[data-entrance]{display:none}`}</style>
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-caption focus:font-semibold focus:text-primary-foreground"

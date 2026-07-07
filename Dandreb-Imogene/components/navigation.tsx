@@ -29,6 +29,7 @@ const NAV_LINKS = [
   { label: "Gallery", href: "#gallery" },
   { label: "Schedule", href: "#schedule" },
   { label: "Venue", href: "#venues" },
+  { label: "Attire", href: "#dress-code" },
   { label: "FAQ", href: "#faq" },
 ] as const;
 
@@ -256,7 +257,7 @@ export function Navigation() {
                 <p className="text-caption text-forest-muted">
                   {couple.dateLabel} · {couple.location}
                 </p>
-                <p className="text-caption font-semibold tracking-wide text-accent">
+                <p className="text-caption uppercase tracking-[0.25em] text-accent">
                   {couple.hashtag}
                 </p>
               </div>

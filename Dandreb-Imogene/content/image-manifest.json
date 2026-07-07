@@ -28,7 +28,7 @@
   "/images/gallery/city-sign-lean.jpg": {
     "width": 1600,
     "height": 2400,
-    "blurDataURL": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwAwCdASoQABgAPxFwsFAsJiSisAgBgCIJbACsAA0kWKMsMxXCwAD+P0vbCrlp2EUhHSfXI6sU3srQp+4kjEt2WUv809mHMzlD1BBabpj3Hb6HvbJuJ4VhXXVMQv5c6nzGiJ/evbbHJeW14+grXrN0NbFZ8IIwgdhNg+ni8KRPNPvyPkUwVmVSyqGE8haQAAA="
+    "blurDataURL": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAQBACdASoQABgAPxFysFAsJqSisAgBgCIJbACw7BtbXdtwdTMsJ/pKJAC303ctkdOb76twhRC3fYkEKxefuPe+k0NvdRwQfruPG/du3u+mFqd0VJkvWD/3US/3JfVyEArZhcmyXf87hQMDwViEZJtU6BlqWM/tDL1tEy4NWeuLnufcjG+LqIa1sxAlaZxGs5vsG8AA"
   },
   "/images/gallery/city-stroll.jpg": {
     "width": 2400,
@@ -65,19 +65,24 @@
     "height": 2400,
     "blurDataURL": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBACdASoQABgAPxFysFAsJqSisAgBgCIJbACdMoAlxRI6pZjmD0vZaWqAAP50x7NQEn9f31T/0Md2dijpYvXgvn8IreBKD0u2Q+Z/XidH6/BTutgqCMF8wtQTRVI4bX3eQpgh1YHJD6kWGtS71GDHQvX+n/gtfUvJeG7PzGdvfxTGGwfAsyU/iAjgG0zD0/UbejqUiDyBRYusnW8PfncQOTv6+d1wpzNj38AAAAA="
   },
+  "/images/monogram.png": {
+    "width": 487,
+    "height": 440,
+    "blurDataURL": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4WAoAAAAQAAAADwAADQAAQUxQSLEAAAABgB3ZtmlrrH1t27Zt2/i8+SfyXhARMQEA9kTE43RGg1r+TfgMAOKKm/7YbQAioHdpwWxD+UIJI4DWjTgU/crW01KIYDaaKrgb+bxvo0dByt5ZK/Zb12w2asR1cl5M+kp/zPtWkXF8atE2ptmuCy3a2PiRShOa16LHosuHmH9f0LQujUyv8VihHXg6J1+o0PaQ2WdmYQyiCcxrrwJYb/OiBRCGhUkcsNnMUbfN7Im7QQAAVlA4IB4AAAAwAQCdASoQAA4ABABoJaQAA3AA/vL2CwRVAA4ZgAA="
+  },
   "/images/og.jpg": {
     "width": 1200,
     "height": 630,
     "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAgABABoJbACdADcABatwAD+62+zlkNwi0pWV94tGhIZj8oo1H24N8IAdNqkq+jMvMG+sV71CVO1JsoE/OoAAAA="
   },
   "/images/venues/church.jpg": {
-    "width": 1600,
-    "height": 1067,
-    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAsABABoJYwCdAENUvZ02AD+78KClsbjUjxzU1tbBEgAAAA="
+    "width": 1200,
+    "height": 800,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQAAsABABoJaAAD5GsYWVTFMXgAAD+6K3a47072FDqbhr+LNARwuV40wBR6VXQfIL1mtHr1wZhlFj9pTj9mVR7vZP6o7jULwCXn52inVcFpTQIAAA="
   },
   "/images/venues/reception.jpg": {
-    "width": 1600,
-    "height": 1067,
-    "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACQAQCdASoQAAsABABoJQAAXNHIZ7AA/u/CgDeTSzg5fyg3Sk6oSIAA"
+    "width": 516,
+    "height": 387,
+    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwABABoJQBOgCPm7r8F/zgAzg5fkho70o6udHaug8X1igaATHDiwwzUspAf+79NEokVEvz/HAzBSwiQQxmJ77XYrgu57F6PzcWIJ4sOsfgdgAA="
   }
 }

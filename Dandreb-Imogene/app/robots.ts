@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
+import { basePath } from "@/lib/base-path";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +9,8 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    // In multi-zone mode this file serves under the basePath; the sitemap does
+    // too, so the reference must include it. (The shell app owns /robots.txt.)
+    sitemap: `${siteUrl}${basePath}/sitemap.xml`,
   };
 }

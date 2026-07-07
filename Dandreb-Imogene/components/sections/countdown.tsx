@@ -91,7 +91,7 @@ function CountdownUnit({ label, value, crossfade }: UnitProps) {
           <span className="block">{display}</span>
         )}
       </span>
-      <span className="text-caption uppercase tracking-[0.25em] text-forest-muted">
+      <span className="text-caption uppercase tracking-[0.15em] text-forest-muted md:tracking-[0.25em]">
         {label}
       </span>
     </div>
@@ -130,7 +130,7 @@ export function Countdown() {
         />
 
         <Reveal className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-forest-foreground/15 bg-forest-foreground/10 p-8 shadow-lg backdrop-blur-md md:p-12">
+          <div className="rounded-2xl border border-forest-foreground/15 bg-forest-foreground/10 p-6 shadow-lg backdrop-blur-md md:p-12">
             {isPast ? (
               <div className="flex flex-col items-center gap-2 text-center">
                 <p
@@ -153,11 +153,11 @@ export function Countdown() {
                   aria-hidden="true"
                   className="flex flex-col items-center gap-8"
                 >
-                  <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-8 md:gap-x-8">
+                  <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-8 md:gap-x-8">
                     {UNITS.map((unit, index) => (
                       <React.Fragment key={unit.key}>
                         {index > 0 ? (
-                          <span className="hidden h-16 w-px bg-accent/40 md:block" />
+                          <span className="hidden h-16 w-px bg-accent/40 lg:block" />
                         ) : null}
                         <CountdownUnit
                           label={unit.label}

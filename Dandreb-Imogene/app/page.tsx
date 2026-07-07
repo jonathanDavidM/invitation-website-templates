@@ -5,6 +5,7 @@ import { Story } from "@/components/sections/story";
 import { Gallery } from "@/components/sections/gallery";
 import { Schedule } from "@/components/sections/schedule";
 import { Venues } from "@/components/sections/venues";
+import { DressCode } from "@/components/sections/dress-code";
 import { Countdown } from "@/components/sections/countdown";
 import { Rsvp } from "@/components/sections/rsvp";
 import { Faq } from "@/components/sections/faq";
@@ -23,6 +24,7 @@ export default function Home() {
         <Gallery />
         <Schedule />
         <Venues />
+        <DressCode />
         <Countdown />
         <Entourage />
         <Rsvp />

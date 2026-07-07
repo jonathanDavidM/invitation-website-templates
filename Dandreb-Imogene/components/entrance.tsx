@@ -52,11 +52,12 @@ export function Entrance() {
           role="dialog"
           aria-modal="true"
           aria-label={`Welcome — ${couple.shortNames}`}
+          data-entrance="true"
           onKeyDown={onKeyDown}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: reduceMotion ? 0 : 0.8, ease: EASE_LUXE }}
-          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-forest px-6 text-center text-forest-foreground"
+          className="fixed inset-0 z-50 flex overflow-y-auto bg-forest px-6 py-8 text-center text-forest-foreground"
         >
           {/* soft radial glow behind the crest */}
           <div
@@ -71,7 +72,7 @@ export function Entrance() {
               ease: EASE_LUXE,
               delay: reduceMotion ? 0 : 0.15,
             }}
-            className="relative flex flex-col items-center gap-6"
+            className="relative m-auto flex flex-col items-center gap-6"
           >
             <Image
               src="/images/monogram.png"
@@ -79,9 +80,9 @@ export function Entrance() {
               width={487}
               height={440}
               priority
-              className="h-28 w-auto invert md:h-36"
+              className="h-20 w-auto invert sm:h-28 md:h-36"
             />
-            <p className="text-caption font-semibold uppercase tracking-[0.3em] text-forest-muted">
+            <p className="text-caption font-semibold uppercase tracking-[0.25em] text-forest-muted">
               {couple.heroEyebrow}
             </p>
             <div aria-hidden="true" className="hairline-gold w-16" />
@@ -93,7 +94,7 @@ export function Entrance() {
               type="button"
               onClick={enter}
               aria-label="Open the invitation"
-              className="group mt-2 flex flex-col items-center gap-4 rounded-xl p-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+              className="group mt-2 flex flex-col items-center gap-4 rounded-xl p-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-foreground"
             >
               <span className="block w-52 drop-shadow-lg transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:drop-shadow-xl sm:w-60">
                 <svg

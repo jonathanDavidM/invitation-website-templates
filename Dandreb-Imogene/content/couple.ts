@@ -12,11 +12,11 @@ export const couple = {
     fullName: "Rose Imogene Agustin",
   },
   /** Shown as the short pairing across the site */
-  shortNames: "Dandreb & Imogin Rose",
+  shortNames: "Dandreb & Rose",
   hashtag: "#DandrebFoundHisRose",
 
   /** Wedding date/time — Philippine time (Asia/Manila) */
-  dateISO: "2026-09-10T14:00:00+08:00",
+  dateISO: "2026-09-10T15:00:00+08:00",
   dateLabel: "September 10, 2026",
   dayLabel: "Thursday",
 
@@ -27,7 +27,7 @@ export const couple = {
 
   welcome: {
     eyebrow: "You are warmly invited",
-    title: "A love that found its season",
+    title: "A Love That Found Its Season",
     script: "and so, the adventure begins",
     body: [
       "With grateful hearts, we invite you to stand with us as we exchange our vows and begin the greatest chapter of our lives.",

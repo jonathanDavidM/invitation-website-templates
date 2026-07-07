@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { RevealGroup, RevealItem } from "@/components/reveal";
 import { DURATION, EASE_LUXE } from "@/lib/motion";
 import { schedule } from "@/content/wedding";
+import { couple } from "@/content/couple";
 
 /**
  * Rail segment that draws itself downward as its event reveals.
@@ -28,7 +29,7 @@ export function Schedule() {
           script="the celebration"
           eyebrow="Wedding Day"
           title="Order of the Day"
-          description="Thursday, September 10, 2026"
+          description={`${couple.dayLabel}, ${couple.dateLabel}`}
         />
 
         <RevealGroup

@@ -115,7 +115,7 @@ export function Hero() {
       >
         <motion.p
           variants={fadeUp}
-          className="text-caption font-semibold uppercase tracking-[0.3em] text-forest-foreground/90"
+          className="text-caption font-semibold uppercase tracking-[0.25em] text-forest-foreground/90"
         >
           {couple.heroEyebrow}
         </motion.p>
@@ -151,7 +151,10 @@ export function Hero() {
         <motion.div variants={fadeUp} className="mt-2">
           <a
             href="#welcome"
-            className={cn(buttonVariants({ variant: "gold", size: "lg" }))}
+            className={cn(
+              buttonVariants({ variant: "gold", size: "lg" }),
+              "focus-visible:outline-forest-foreground",
+            )}
           >
             {couple.heroCta}
           </a>
@@ -168,7 +171,7 @@ export function Hero() {
         <a
           href="#welcome"
           aria-label="Scroll to welcome"
-          className="flex min-h-11 min-w-11 flex-col items-center justify-end gap-2 p-2 text-forest-foreground/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          className="flex min-h-11 min-w-11 flex-col items-center justify-end gap-2 p-2 text-forest-foreground/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-foreground"
         >
           <span
             aria-hidden="true"

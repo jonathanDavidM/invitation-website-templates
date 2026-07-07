@@ -213,16 +213,16 @@ function PhotoButton({ img, sizes, variant, onOpen }: PhotoButtonProps) {
         <span
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-start bg-gradient-to-t from-forest/70 via-forest/25 to-transparent text-left",
+            "pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-start bg-gradient-to-t from-forest/95 via-forest/55 to-transparent text-left",
             variant === "full"
-              ? "p-6 pt-16 md:p-10 md:pt-24"
-              : "p-4 pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100",
+              ? "p-4 pt-16 sm:p-6 sm:pt-24 md:p-12 md:pt-40"
+              : "p-4 pt-16 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100",
           )}
         >
           <span
             className={cn(
-              "font-serif italic text-forest-foreground",
-              variant === "full" ? "text-body" : "text-caption",
+              "font-serif italic text-forest-foreground drop-shadow-lg",
+              variant === "full" ? "text-title" : "text-body",
             )}
           >
             {img.caption}
@@ -281,7 +281,7 @@ export function Gallery() {
               <Reveal
                 key={block.key}
                 variants={imageReveal}
-                className="relative aspect-[21/9] w-full overflow-hidden md:aspect-[24/9]"
+                className="relative aspect-[3/2] w-full overflow-hidden md:aspect-[24/9]"
               >
                 <PhotoButton
                   img={img}
@@ -357,7 +357,7 @@ export function Gallery() {
                   sizes="100vw"
                   placeholder={current.blurDataURL ? "blur" : "empty"}
                   blurDataURL={current.blurDataURL}
-                  className="h-auto max-h-[85svh] w-auto max-w-full rounded-lg object-contain shadow-lg"
+                  className="h-auto max-h-[calc(100svh-11rem)] w-auto max-w-full rounded-lg object-contain shadow-lg"
                 />
                 <figcaption className="flex flex-col items-center gap-1 text-center">
                   {current.caption ? (

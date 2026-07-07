@@ -11,7 +11,7 @@ export const story: StoryMilestone[] = [
     body: "Some stories begin with fireworks; ours began with a conversation that simply refused to end. What started as small talk became long walks, shared playlists, and the quiet certainty that we had found something rare.",
     image: "/images/gallery/city-stroll.jpg",
     imageAlt:
-      "Dandreb and Imogin Rose walking hand in hand along a palm-lined city street",
+      "Dandreb and Rose Imogene walking hand in hand along a palm-lined city street",
   },
   {
     date: "The in-between years",
@@ -27,7 +27,7 @@ export const story: StoryMilestone[] = [
     body: "On golden dunes at sunset, with the wind carrying every word, Dandreb asked the question he had been carrying in his heart for years. Through happy tears, she said yes — and the desert has held our secret ever since.",
     image: "/images/gallery/desert-sunset-gaze.jpg",
     imageAlt:
-      "Dandreb and Imogin Rose face to face at sunset in the desert, the sun glowing between them",
+      "Dandreb and Rose Imogene face to face at sunset in the desert, the sun glowing between them",
   },
   {
     date: "September 10, 2026",

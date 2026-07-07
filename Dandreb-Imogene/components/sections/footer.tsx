@@ -74,19 +74,16 @@ export function Footer() {
           </RevealItem>
 
           <RevealItem className="mt-6">
-            <p className="text-caption uppercase tracking-[0.25em] text-accent/70">
+            <p className="text-caption uppercase tracking-[0.25em] text-accent">
               {couple.hashtag}
             </p>
           </RevealItem>
         </RevealGroup>
 
         <div className="mt-16 border-t border-forest-foreground/15 pt-8 md:mt-24">
-          <div className="flex flex-col items-center gap-2 text-caption text-forest-muted sm:flex-row sm:justify-between">
-            <p>
-              {couple.dateLabel} &middot; {couple.location}
-            </p>
-            <p>Made with love</p>
-          </div>
+          <p className="text-center text-caption text-forest-muted">
+            Made with love
+          </p>
         </div>
       </Container>
     </footer>

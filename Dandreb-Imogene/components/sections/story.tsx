@@ -92,7 +92,7 @@ export function Story() {
                             sizes="(min-width: 768px) 40vw, 90vw"
                             placeholder={meta?.blurDataURL ? "blur" : "empty"}
                             blurDataURL={meta?.blurDataURL}
-                            className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                           />
                         </div>
                       </RevealItem>

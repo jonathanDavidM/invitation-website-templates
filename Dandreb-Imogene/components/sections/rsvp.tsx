@@ -51,6 +51,13 @@ export function Rsvp() {
   const [successMessage, setSuccessMessage] = React.useState<string | null>(
     null,
   );
+  const successRef = React.useRef<HTMLDivElement>(null);
+
+  // The form (and its focused submit button) unmounts on success — move focus
+  // to the success panel so keyboard/AT users aren't dropped to <body>.
+  React.useEffect(() => {
+    if (successMessage) successRef.current?.focus();
+  }, [successMessage]);
 
   const {
     control,
@@ -123,17 +130,19 @@ export function Rsvp() {
         />
 
         <Reveal className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-border bg-background p-6 shadow-sm md:p-10">
+          <div className="rounded-2xl border border-border bg-background p-8 shadow-sm md:p-10">
             <AnimatePresence mode="wait" initial={false}>
               {successMessage ? (
                 <motion.div
                   key="success"
                   role="status"
+                  ref={successRef}
+                  tabIndex={-1}
                   variants={scaleIn}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="flex flex-col items-center gap-6 py-8 text-center"
+                  className="flex flex-col items-center gap-6 py-8 text-center focus:outline-none"
                 >
                   <span className="flex size-16 items-center justify-center rounded-full border border-accent/60 bg-accent-soft">
                     <Check

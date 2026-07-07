@@ -17,7 +17,7 @@ interface ManifestEntry {
 const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   {
     src: "/images/gallery/desert-dunes-hero.jpg",
-    alt: "Dandreb and Imogin Rose embracing on a desert dune at sunset, her bronze satin gown flowing across the sand",
+    alt: "Dandreb and Rose Imogene embracing on a desert dune at sunset, her bronze satin gown flowing across the sand",
     orientation: "landscape",
     emphasis: "full",
     caption: "Golden hour on the dunes",
@@ -31,7 +31,7 @@ const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   },
   {
     src: "/images/gallery/desert-sunset-gaze.jpg",
-    alt: "Dandreb and Imogin Rose face to face, the setting sun glowing between them",
+    alt: "Dandreb and Rose Imogene face to face, the setting sun glowing between them",
     orientation: "portrait",
     emphasis: "standard",
     caption: "Just before the sun slipped away",
@@ -51,7 +51,7 @@ const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   },
   {
     src: "/images/gallery/city-bride-portrait.jpg",
-    alt: "Imogin Rose in a white blazer dress smiling over her shoulder by a turquoise waterfront promenade",
+    alt: "Rose Imogene in a white blazer dress smiling over her shoulder by a turquoise waterfront promenade",
     orientation: "portrait",
     emphasis: "standard",
   },
@@ -64,7 +64,7 @@ const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   },
   {
     src: "/images/gallery/city-promenade.jpg",
-    alt: "Dandreb and Imogin Rose walking hand in hand along a fountain promenade, smiling at each other",
+    alt: "Dandreb and Rose Imogene walking hand in hand along a fountain promenade, smiling at each other",
     orientation: "portrait",
     emphasis: "standard",
   },
@@ -77,7 +77,7 @@ const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   },
   {
     src: "/images/gallery/tram-facing.jpg",
-    alt: "Dandreb and Imogin Rose holding hands face to face before a red vintage tram",
+    alt: "Dandreb and Rose Imogene holding hands face to face before a red vintage tram",
     orientation: "landscape",
     emphasis: "standard",
   },
@@ -96,7 +96,7 @@ const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   },
   {
     src: "/images/gallery/city-sign-lean.jpg",
-    alt: "Imogin Rose and Dandreb leaning back to back against a street sign pole, skyscraper behind",
+    alt: "Dandreb and Rose Imogene at the Wings of Mexico statue, the Burj Khalifa framed between the golden wings",
     orientation: "portrait",
     emphasis: "standard",
   },

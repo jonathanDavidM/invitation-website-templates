@@ -11,10 +11,10 @@ import type { ScheduleEvent, Venue } from "@/types";
 /** The day's programme — edit times, titles, and copy freely. */
 export const schedule: ScheduleEvent[] = [
   {
-    time: "2:00 PM",
+    time: "3:00 PM",
     title: "Ceremony",
     description:
-      "Holy Matrimony at San Antonio de Padua Parish. Kindly be seated by 1:30 PM.",
+      "Holy Matrimony at San Antonio de Padua Parish. Kindly be seated by 2:30 PM.",
     icon: Church,
   },
   {
@@ -39,7 +39,8 @@ export const schedule: ScheduleEvent[] = [
   {
     time: "8:30 PM",
     title: "First Dance",
-    description: "Our first dance as husband and wife — then the floor is yours.",
+    description:
+      "Our first dance as husband and wife — then the floor is yours.",
     icon: Music,
   },
   {
@@ -56,7 +57,7 @@ export const venues: Venue[] = [
     label: "The Ceremony",
     name: "San Antonio de Padua Parish",
     address: "Silang, Cavite, Philippines",
-    time: "2:00 PM · September 10, 2026",
+    time: "3:00 PM · September 10, 2026",
     mapsUrl:
       "https://www.google.com/maps/place/San+Antonio+de+Padua+Parish/@14.1916913,120.989979,1063m/data=!3m2!1e3!4b1!4m6!3m5!1s0x33bd7c0265859361:0xa4a9b11e95646896!8m2!3d14.1916913!4d120.9925539!16s%2Fg%2F1hc4ljm34",
     image: "/images/venues/church.jpg",

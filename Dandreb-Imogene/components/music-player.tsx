@@ -60,13 +60,22 @@ export function MusicPlayer() {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.55;
+    // The src loads pre-hydration, so a missing file may have errored before
+    // React attached listeners — check the latched state, then listen too.
+    if (audio.error) {
+      setAvailable(false);
+      return;
+    }
     const onPlay = () => setPlaying(true);
     const onPause = () => setPlaying(false);
+    const onError = () => setAvailable(false);
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onPause);
+    audio.addEventListener("error", onError);
     return () => {
       audio.removeEventListener("play", onPlay);
       audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("error", onError);
     };
   }, []);
 
@@ -120,13 +129,7 @@ export function MusicPlayer() {
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        src={SRC}
-        loop
-        preload="metadata"
-        onError={() => setAvailable(false)}
-      />
+      <audio ref={audioRef} src={SRC} loop preload="metadata" />
       <motion.button
         type="button"
         onClick={toggle}
@@ -136,7 +139,7 @@ export function MusicPlayer() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.2, duration: 0.5 }}
         className={cn(
-          "fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center rounded-full",
+          "fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom))] right-[calc(1.25rem+env(safe-area-inset-right))] z-50 flex size-12 items-center justify-center rounded-full",
           "border border-border bg-background/70 text-primary shadow-md backdrop-blur-md",
           "transition-colors duration-200 hover:bg-background",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
