@@ -25,7 +25,17 @@ export function Faq() {
             {faqs.map((faq, i) => (
               <AccordionItem key={faq.question} value={`item-${i}`}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionContent>
+                  {Array.isArray(faq.answer) ? (
+                    <div className="space-y-3">
+                      {faq.answer.map((paragraph, j) => (
+                        <p key={j}>{paragraph}</p>
+                      ))}
+                    </div>
+                  ) : (
+                    faq.answer
+                  )}
+                </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
