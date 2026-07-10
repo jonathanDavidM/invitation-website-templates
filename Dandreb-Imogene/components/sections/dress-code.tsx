@@ -1,11 +1,33 @@
+import Image from "next/image";
 import { Ban } from "lucide-react";
 import { Section, Container } from "@/components/section";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { dressCode, type DressSwatch } from "@/content/dresscode";
 
-/** One color swatch with its name. `avoid` adds a diagonal "no" strike. */
-function Swatch({ swatch, avoid }: { swatch: DressSwatch; avoid?: boolean }) {
+// Look up palette swatches by name so each column can order its color chips to
+// match the figures in its illustration (left-to-right).
+const byName = new Map(dressCode.wear.map((s) => [s.name, s]));
+const order = (names: string[]) =>
+  names.map((n) => byName.get(n)).filter((s): s is DressSwatch => Boolean(s));
+
+const columns = [
+  {
+    label: "Ladies",
+    text: dressCode.ladies,
+    src: "/images/attire/ladies.png",
+    swatches: order(["Olive Green", "Champagne", "Tan Gold", "Cocoa"]),
+  },
+  {
+    label: "Gentlemen",
+    text: dressCode.gentlemen,
+    src: "/images/attire/gentlemen.png",
+    swatches: order(["Olive Green", "Champagne", "Cocoa", "Tan Gold"]),
+  },
+];
+
+/** Circular swatch for the "avoid" palette — adds a diagonal "no" strike. */
+function AvoidSwatch({ swatch }: { swatch: DressSwatch }) {
   return (
     <RevealItem
       as="li"
@@ -16,19 +38,17 @@ function Swatch({ swatch, avoid }: { swatch: DressSwatch; avoid?: boolean }) {
         // Content-driven color (the couple's palette), not a design token.
         style={{ backgroundColor: swatch.hex }}
       >
-        {avoid ? (
-          <span
-            aria-hidden="true"
-            className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 rotate-45 bg-destructive"
-          />
-        ) : null}
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 rotate-45 bg-destructive"
+        />
       </span>
       <span className="text-caption text-muted-foreground">{swatch.name}</span>
     </RevealItem>
   );
 }
 
-/** Small heading used above each palette. */
+/** Small heading used above the "avoid" palette. */
 function PaletteLabel({
   children,
   icon,
@@ -58,42 +78,60 @@ export function DressCode() {
           description={dressCode.intro}
         />
 
-        <div className="mx-auto max-w-3xl">
-          {/* Attire guidance */}
+        <div className="mx-auto max-w-5xl">
+          {/* Ladies & Gentlemen attire guide */}
           <RevealGroup
-            stagger={0.1}
-            className="grid gap-6 sm:grid-cols-2"
+            stagger={0.12}
+            className="grid gap-10 md:grid-cols-2 md:gap-12"
           >
-            {[
-              { label: "For the Ladies", text: dressCode.ladies },
-              { label: "For the Gentlemen", text: dressCode.gentlemen },
-            ].map((item) => (
-              <RevealItem
-                key={item.label}
-                className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm"
-              >
+            {columns.map((col) => (
+              <RevealItem key={col.label} className="flex flex-col items-center">
                 <p className="text-caption font-semibold uppercase tracking-[0.25em] text-accent-foreground/80">
-                  {item.label}
+                  {col.label}
                 </p>
-                <p className="mt-4 text-body text-muted-foreground">
-                  {item.text}
+                <div aria-hidden="true" className="hairline-gold mt-3 w-10" />
+
+                <div className="relative mt-6 aspect-[28/25] w-full max-w-md">
+                  <Image
+                    src={col.src}
+                    alt={`${col.label} attire in our wedding colors: ${col.swatches
+                      .map((s) => s.name)
+                      .join(", ")}.`}
+                    fill
+                    sizes="(min-width: 768px) 40vw, 90vw"
+                    className="object-contain object-bottom"
+                  />
+                </div>
+
+                <ul className="mt-6 grid w-full max-w-md grid-cols-4 gap-2">
+                  {col.swatches.map((swatch) => (
+                    <li
+                      key={swatch.name}
+                      className="flex flex-col items-center gap-2 text-center"
+                    >
+                      <span
+                        className="size-8 rounded-full shadow-sm ring-1 ring-border/70"
+                        style={{ backgroundColor: swatch.hex }}
+                      />
+                      <span className="text-caption leading-tight text-muted-foreground">
+                        {swatch.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-4 max-w-sm text-center text-caption text-muted-foreground">
+                  {col.text}
                 </p>
               </RevealItem>
             ))}
           </RevealGroup>
 
-          {/* Encouraged palette */}
-          <Reveal className="mt-16">
-            <PaletteLabel>Wear these tones</PaletteLabel>
-            <RevealGroup
-              as="ul"
-              stagger={0.06}
-              className="flex flex-wrap items-start justify-center gap-6 md:gap-8"
-            >
-              {dressCode.wear.map((swatch) => (
-                <Swatch key={swatch.name} swatch={swatch} />
-              ))}
-            </RevealGroup>
+          {/* Encouraging closing line */}
+          <Reveal className="mt-12">
+            <p className="mx-auto max-w-xl text-center text-caption uppercase tracking-[0.2em] text-muted-foreground">
+              {dressCode.encourage}
+            </p>
           </Reveal>
 
           {/* Avoid palette */}
@@ -109,7 +147,7 @@ export function DressCode() {
               className="flex flex-wrap items-start justify-center gap-6 md:gap-8"
             >
               {dressCode.avoid.map((swatch) => (
-                <Swatch key={swatch.name} swatch={swatch} avoid />
+                <AvoidSwatch key={swatch.name} swatch={swatch} />
               ))}
             </RevealGroup>
             <p className="mx-auto mt-8 max-w-xl text-center text-caption text-muted-foreground">

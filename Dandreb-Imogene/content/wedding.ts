@@ -2,9 +2,8 @@ import {
   Church,
   GlassWater,
   Utensils,
-  Cake,
-  Music,
   PartyPopper,
+  Heart,
 } from "lucide-react";
 import type { ScheduleEvent, Venue } from "@/types";
 
@@ -18,36 +17,31 @@ export const schedule: ScheduleEvent[] = [
     icon: Church,
   },
   {
-    time: "5:00 PM",
-    title: "Cocktails & Reception",
+    time: "6:00 PM",
+    title: "Cocktail Hour & Guest Arrival",
     description:
-      "Join us at Infinity Tagaytay Events Place for drinks, canapés, and golden-hour views.",
+      "Join us at Infinity Tagaytay Events Place for drinks and canapés as the celebration begins.",
     icon: GlassWater,
   },
   {
     time: "6:30 PM",
     title: "Dinner",
-    description: "A shared feast, family style — prepared with love.",
+    description: "A warm, hearty meal served as the evening settles in.",
     icon: Utensils,
   },
   {
-    time: "8:00 PM",
-    title: "Cake Cutting",
-    description: "Something sweet to mark the sweetest day.",
-    icon: Cake,
-  },
-  {
-    time: "8:30 PM",
-    title: "First Dance",
+    time: "7:00 PM",
+    title: "Program Proper",
     description:
-      "Our first dance as husband and wife — then the floor is yours.",
-    icon: Music,
+      "An evening of wedding traditions, games, performances, and heartfelt moments together.",
+    icon: PartyPopper,
   },
   {
-    time: "9:30 PM",
-    title: "After Party",
-    description: "Dance, laugh, and celebrate with us late into the evening.",
-    icon: PartyPopper,
+    time: "9:00 PM",
+    title: "End of Celebration",
+    description:
+      "Our reception draws to a close — thank you for celebrating with us.",
+    icon: Heart,
   },
 ];
 

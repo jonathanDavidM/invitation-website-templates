@@ -46,7 +46,8 @@ export interface Venue {
 
 export interface FaqItem {
   question: string;
-  answer: string;
+  /** A single paragraph, or several rendered as stacked paragraphs. */
+  answer: string | string[];
 }
 
 export interface EntourageMember {

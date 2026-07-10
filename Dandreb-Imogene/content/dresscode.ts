@@ -15,17 +15,19 @@ export const dressCode = {
   intro:
     "Help us paint a picture worth remembering. We kindly invite you to dress formally in the elegant, muted tones below.",
 
-  ladies: "Long dress or elegant cocktail attire in the tones below.",
-  gentlemen: "Suit or barong in neutral or earthy shades.",
+  ladies: "A long gown or formal dress.",
+  gentlemen: "A suit, or a long-sleeves, polo and slacks.",
+
+  /** Closing line beneath the Ladies & Gentlemen attire guide. */
+  encourage:
+    "We kindly encourage our guests to wear these colors for our special day.",
 
   /** Encouraged colors — guests are invited to wear these. */
   wear: [
-    { name: "Sage", hex: "#A3B18A" },
-    { name: "Champagne", hex: "#E8C76A" },
-    { name: "Terracotta", hex: "#C57B57" },
-    { name: "Dusty Rose", hex: "#C9A0A0" },
-    { name: "Taupe", hex: "#B8A99A" },
-    { name: "Dusty Blue", hex: "#8FA1B3" },
+    { name: "Olive Green", hex: "#67775A" },
+    { name: "Tan Gold", hex: "#C9B27E" },
+    { name: "Cocoa", hex: "#6D5C4C" },
+    { name: "Champagne", hex: "#F5E7CE" },
   ] as DressSwatch[],
 
   /** Please avoid these colors. */
