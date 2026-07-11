@@ -41,7 +41,7 @@ export const entourage: EntourageGroup[] = [
       { name: "Mr. Ricardo Madlangbayan" },
       { name: "Mrs. Violeta Veluz" },
       { name: "Mr. Redentor Alipio" },
-      { name: "Mrs. Lilith See" },
+      { name: "Mrs. Normita Gallanosa" },
       { name: "Mr. Rolando Alipio" },
       { name: "Mrs. Rosario Alipio" },
     ],
