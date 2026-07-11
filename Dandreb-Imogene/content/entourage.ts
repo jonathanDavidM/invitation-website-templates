@@ -22,6 +22,11 @@ export const entourage: EntourageGroup[] = [
     ],
   },
   {
+    title: "Grandfather of the Bride",
+    size: "large",
+    members: [{ name: "Mr. Armando Alipio" }],
+  },
+  {
     title: "Principal Sponsors",
     members: [
       { name: "Mr. Armando Magno" },
