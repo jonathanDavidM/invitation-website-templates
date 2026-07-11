@@ -119,5 +119,19 @@ export const gallery: GalleryImage[] = entries.map((entry) => {
   };
 });
 
-/** The hero background image (also used for Open Graph). */
-export const heroImage = gallery[0];
+/**
+ * The hero background image (also used for Open Graph).
+ * Set independently of the gallery order, so the hero can differ from the
+ * first gallery photo.
+ */
+const heroSrc = "/images/gallery/desert-dunes-hero.jpg";
+const heroMeta = manifestMap[heroSrc];
+export const heroImage: GalleryImage = {
+  src: heroSrc,
+  alt: "Dandreb and Rose Imogene embracing on a desert dune at sunset, her bronze satin gown flowing across the sand",
+  orientation: "landscape",
+  emphasis: "full",
+  width: heroMeta?.width ?? fallbackDims.landscape.width,
+  height: heroMeta?.height ?? fallbackDims.landscape.height,
+  blurDataURL: heroMeta?.blurDataURL,
+};
