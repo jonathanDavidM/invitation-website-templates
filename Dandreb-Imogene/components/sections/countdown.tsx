@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { EASE_LUXE } from "@/lib/motion";
 import { couple } from "@/content/couple";
+import { cn } from "@/lib/utils";
 
 interface Remaining {
   months: number;
@@ -66,13 +67,19 @@ interface UnitProps {
   /** null while waiting for the first client tick — renders a fixed-width dash */
   value: number | null;
   crossfade: boolean;
+  className?: string;
 }
 
-function CountdownUnit({ label, value, crossfade }: UnitProps) {
+function CountdownUnit({ label, value, crossfade, className }: UnitProps) {
   const display = value === null ? "—" : String(value).padStart(2, "0");
 
   return (
-    <div className="flex min-w-16 flex-col items-center gap-2 md:min-w-24">
+    <div
+      className={cn(
+        "flex min-w-16 flex-col items-center gap-2 md:min-w-24",
+        className,
+      )}
+    >
       <span className="relative block overflow-hidden font-serif text-display font-normal tabular-nums text-forest-foreground">
         {crossfade && value !== null ? (
           <AnimatePresence mode="popLayout" initial={false}>
@@ -153,7 +160,9 @@ export function Countdown() {
                   aria-hidden="true"
                   className="flex flex-col items-center gap-8"
                 >
-                  <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-8 md:gap-x-8">
+                  {/* Mobile: 3 on top, Minutes + Seconds centered below.
+                      sm+: a single centered row (with dividers from lg). */}
+                  <div className="grid grid-cols-6 justify-items-center gap-y-8 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-2 md:gap-x-8">
                     {UNITS.map((unit, index) => (
                       <React.Fragment key={unit.key}>
                         {index > 0 ? (
@@ -163,11 +172,18 @@ export function Countdown() {
                           label={unit.label}
                           value={parts ? parts[unit.key] : null}
                           crossfade={!reduceMotion}
+                          // 6-col mobile grid: each unit spans 2 cols; Minutes
+                          // starts at col 2 so it + Seconds center the 2nd row.
+                          // (grid-column is ignored once the container is flex.)
+                          className={cn(
+                            "col-span-2",
+                            index === 3 && "col-start-2",
+                          )}
                         />
                       </React.Fragment>
                     ))}
                   </div>
-                  <p className="text-caption uppercase tracking-[0.25em] text-forest-muted">
+                  <p className="text-center text-caption uppercase tracking-[0.15em] text-forest-muted md:tracking-[0.25em]">
                     {couple.dayLabel} &middot; {couple.dateLabel}
                   </p>
                 </div>
