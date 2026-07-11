@@ -55,7 +55,7 @@ export const faqs: FaqItem[] = [
   {
     question: "How do I RSVP?",
     answer: [
-      "Please RSVP using the button on this website on or before August 10, 2026.",
+      "Please RSVP using the button on this website on or before August 15, 2026.",
       "Your response helps us finalize seating and catering arrangements.",
     ],
   },

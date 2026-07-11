@@ -24,7 +24,6 @@ export async function submitToGoogleForm(data: RsvpData): Promise<void> {
 
   set(entries.guestName, data.guestName);
   set(entries.contactNumber, data.contactNumber);
-  set(entries.email, data.email);
   set(entries.attendance, optionLabels.attendance[data.attendance]);
   set(entries.message, data.message);
 

@@ -42,7 +42,7 @@ export const couple = {
 
   rsvp: {
     /** RSVP-by date shown above the form */
-    deadlineLabel: "Kindly respond on or before August 10, 2026",
+    deadlineLabel: "Kindly respond on or before August 15, 2026",
     contactNote:
       "Trouble with the form? Message us directly and we will note your response ourselves.",
   },

@@ -26,7 +26,6 @@ const FALLBACK_ERROR =
 const FIELD_ORDER = [
   "guestName",
   "contactNumber",
-  "email",
   "attendance",
   "message",
 ] as const;
@@ -71,7 +70,6 @@ export function Rsvp() {
     defaultValues: {
       guestName: "",
       contactNumber: "",
-      email: "",
       message: "",
       website: "",
     },
@@ -189,41 +187,22 @@ export function Rsvp() {
                     />
                   </div>
 
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div className="grid gap-2">
-                      <Label htmlFor="rsvp-contact">Contact number</Label>
-                      <Input
-                        id="rsvp-contact"
-                        type="tel"
-                        autoComplete="tel"
-                        aria-invalid={errors.contactNumber ? true : undefined}
-                        aria-describedby={
-                          errors.contactNumber ? "rsvp-contact-error" : undefined
-                        }
-                        {...register("contactNumber")}
-                      />
-                      <FieldError
-                        id="rsvp-contact-error"
-                        message={errors.contactNumber?.message}
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="rsvp-email">Email</Label>
-                      <Input
-                        id="rsvp-email"
-                        type="email"
-                        autoComplete="email"
-                        aria-invalid={errors.email ? true : undefined}
-                        aria-describedby={
-                          errors.email ? "rsvp-email-error" : undefined
-                        }
-                        {...register("email")}
-                      />
-                      <FieldError
-                        id="rsvp-email-error"
-                        message={errors.email?.message}
-                      />
-                    </div>
+                  <div className="grid gap-2">
+                    <Label htmlFor="rsvp-contact">Contact number</Label>
+                    <Input
+                      id="rsvp-contact"
+                      type="tel"
+                      autoComplete="tel"
+                      aria-invalid={errors.contactNumber ? true : undefined}
+                      aria-describedby={
+                        errors.contactNumber ? "rsvp-contact-error" : undefined
+                      }
+                      {...register("contactNumber")}
+                    />
+                    <FieldError
+                      id="rsvp-contact-error"
+                      message={errors.contactNumber?.message}
+                    />
                   </div>
 
                   <div className="grid gap-2">

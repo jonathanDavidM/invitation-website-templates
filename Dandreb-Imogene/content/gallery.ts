@@ -16,7 +16,7 @@ interface ManifestEntry {
 
 const entries: Omit<GalleryImage, "width" | "height" | "blurDataURL">[] = [
   {
-    src: "/images/gallery/desert-dunes-hero.jpg",
+    src: "/images/gallery/golden-hour.jpg",
     alt: "Dandreb and Rose Imogene embracing on a desert dune at sunset, her bronze satin gown flowing across the sand",
     orientation: "landscape",
     emphasis: "full",

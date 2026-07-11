@@ -33,7 +33,7 @@ export const story: StoryMilestone[] = [
     date: "September 10, 2026",
     title: "The beginning of forever",
     body: "And now we come home — to Silang, to Tagaytay, to family and friends — to promise each other everything, surrounded by the people who shaped us. We would be honored to have you there.",
-    image: "/images/gallery/desert-dunes-hero.jpg",
+    image: "/images/gallery/beginning-of-forever.jpg",
     imageAlt:
       "The couple embracing on a desert dune at sunset, her bronze gown flowing in the wind",
   },

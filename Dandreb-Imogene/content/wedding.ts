@@ -1,10 +1,4 @@
-import {
-  Church,
-  GlassWater,
-  Utensils,
-  PartyPopper,
-  Heart,
-} from "lucide-react";
+import { Church, GlassWater, Utensils, PartyPopper, Heart } from "lucide-react";
 import type { ScheduleEvent, Venue } from "@/types";
 
 /** The day's programme — edit times, titles, and copy freely. */
@@ -61,7 +55,7 @@ export const venues: Venue[] = [
     label: "The Reception",
     name: "Infinity Tagaytay Events Place",
     address: "Tagaytay, Cavite, Philippines",
-    time: "5:00 PM · September 10, 2026",
+    time: "6:00 PM · September 10, 2026",
     mapsUrl:
       "https://www.google.com/maps/place/INFINITY+TAGAYTAY+EVENTS+PLACE/@14.1229918,120.9514421,66m/data=!3m1!1e3!4m14!1m7!3m6!1s0x33bd79d5dbcc8c67:0x42213db338c3025c!2sINFINITY+TAGAYTAY+EVENTS+PLACE!8m2!3d14.1230001!4d120.9513257!16s%2Fg%2F11sd3w8lxd!3m5!1s0x33bd79d5dbcc8c67:0x42213db338c3025c!8m2!3d14.1230001!4d120.9513257!16s%2Fg%2F11sd3w8lxd",
     image: "/images/venues/reception.jpg",
