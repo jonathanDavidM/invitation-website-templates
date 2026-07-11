@@ -26,9 +26,7 @@ function GroupCard({
         className={cn(
           "mt-6",
           columns
-            ? // Always two columns so each sponsor pair stays partner-by-partner,
-              // even on mobile (tighter column gap on small screens).
-              "mx-auto grid max-w-2xl grid-cols-2 gap-x-4 gap-y-3 sm:gap-x-8"
+            ? "mx-auto grid max-w-2xl gap-x-8 gap-y-2 sm:grid-cols-2"
             : "space-y-2",
         )}
       >
