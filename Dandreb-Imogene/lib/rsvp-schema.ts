@@ -2,7 +2,7 @@ import { z } from "zod";
 
 /**
  * RSVP validation — shared by the client form and the API route.
- * Fields mirror the Google Form: Name of Guest, Contact Number, Email,
+ * Fields mirror the Google Form: Name of Guest, Contact Number,
  * Will you attend?, Message.
  */
 export const rsvpSchema = z.object({
@@ -17,7 +17,6 @@ export const rsvpSchema = z.object({
     .min(7, "Please enter a valid contact number")
     .max(20, "Please enter a valid contact number")
     .regex(/^[+\d][\d\s()-]+$/, "Please enter a valid contact number"),
-  email: z.string().trim().email("Please enter a valid email address"),
   attendance: z.enum(["yes", "no"], {
     error: "Please let us know if you can attend",
   }),
