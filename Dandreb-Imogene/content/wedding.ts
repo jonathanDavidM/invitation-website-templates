@@ -18,17 +18,17 @@ export const schedule: ScheduleEvent[] = [
     icon: GlassWater,
   },
   {
-    time: "6:30 PM",
-    title: "Dinner",
-    description: "A warm, hearty meal served as the evening settles in.",
-    icon: Utensils,
-  },
-  {
     time: "7:00 PM",
     title: "Program Proper",
     description:
       "An evening of wedding traditions, games, performances, and heartfelt moments together.",
     icon: PartyPopper,
+  },
+  {
+    time: "8:00 PM",
+    title: "Dinner",
+    description: "A warm, hearty meal served as the evening settles in.",
+    icon: Utensils,
   },
   {
     time: "9:00 PM",

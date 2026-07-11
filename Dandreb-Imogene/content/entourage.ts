@@ -68,9 +68,9 @@ export const entourage: EntourageGroup[] = [
   {
     title: "Bridesmaids",
     members: [
-      { name: "Bianca Michelle Tellez" },
+      { name: "Julie Ann Magno" },
       { name: "Cynthia Nicole Magno" },
-      { name: "Melissa Batuhan" },
+      { name: "Melissa Joyce Naynes" },
       { name: "Maica Angeli Costales" },
     ],
   },
@@ -82,7 +82,7 @@ export const entourage: EntourageGroup[] = [
       { name: "Jay Agustin", role: "Veil" },
       { name: "Ina Agustin", role: "Veil" },
       { name: "Von Carlo Clamosa", role: "Cord" },
-      { name: "Julie Ann Magno", role: "Cord" },
+      { name: "Bianca Michelle Tellez", role: "Cord" },
     ],
   },
   {
