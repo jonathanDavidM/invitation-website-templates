@@ -30,6 +30,9 @@ const greatVibes = Great_Vibes({
 
 const title = `${couple.shortNames} — ${couple.dateLabel}`;
 const description = `Together with our families, ${couple.groom.fullName} and ${couple.bride.fullName} invite you to celebrate their wedding on ${couple.dateLabel} in ${couple.location}. RSVP and find every detail here.`;
+// Full invitation URL (host + basePath). Facebook/Messenger use og:url as the
+// preview click target — must include /dandreb-rose in multi-zone deploys.
+const pageUrl = `${siteUrl}${basePath}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -46,9 +49,12 @@ export const metadata: Metadata = {
     "Silang Cavite wedding",
     "Tagaytay wedding",
   ],
+  alternates: {
+    canonical: pageUrl,
+  },
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: pageUrl,
     title,
     description,
     siteName: couple.shortNames,
