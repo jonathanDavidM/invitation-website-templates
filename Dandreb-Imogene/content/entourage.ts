@@ -64,7 +64,7 @@ export const entourage: EntourageGroup[] = [
   {
     title: "Groomsmen",
     members: [
-      { name: "Teejay Magno" },
+      { name: "Armando 'Teejay' Magno Jr." },
       { name: "Rexon Perea" },
       { name: "Roland Vincent Alipio" },
       { name: "Lester Alipio" },
@@ -73,7 +73,7 @@ export const entourage: EntourageGroup[] = [
   {
     title: "Bridesmaids",
     members: [
-      { name: "Julie Ann Magno" },
+      { name: "Julie Anne Magno" },
       { name: "Cynthia Nicole Magno" },
       { name: "Melissa Joyce Naynes" },
       { name: "Maica Angeli Costales" },
